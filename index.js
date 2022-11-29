@@ -5,7 +5,10 @@ import {
     setActiveLink, adjustForMissingHash, renderTemplate, loadHtml
 } from "./util.js"
 
-import {loginSetup} from "./pages/login/login.js"
+import {loginSetupAuthorize} from "./pages/login/login.js"
+
+import { fetchTableplan } from "./pages/tableplan/tableplan.js"
+import { userPageSetup } from "./pages/userPage/userPage.js"
 
 const content = 'content'
 
@@ -14,6 +17,8 @@ window.addEventListener("load", async () => {
   const templateHome = await loadHtml("./pages/home/home.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateLogin = await loadHtml("./pages/login/login.html")
+  const templateTableplan = await loadHtml("./pages/tableplan/tableplanView.html")
+  const templateUserPage = await loadHtml("./pages/userPage/userPage.html")
   adjustForMissingHash()
 
     const router = new Navigo("/", {hash: true});
@@ -32,10 +37,17 @@ window.addEventListener("load", async () => {
           "/": () => {
             renderTemplate(templateHome, content)
             },
-
             "/login": () => {
                 renderTemplate(templateLogin, content)
-                loginSetup()
+                loginSetupAuthorize()
+            },
+            "/admin/bordplan": () => {
+                renderTemplate(templateTableplan, content)
+                fetchTableplan()
+            } ,
+            "/user": () => {
+                renderTemplate(templateUserPage, content)
+                userPageSetup()
             }
         })
         .notFound(() => {

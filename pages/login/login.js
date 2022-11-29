@@ -1,4 +1,4 @@
-export async function loginSetup() {
+export async function loginSetupAuthorize() {
     const accessToken = localStorage.getItem("accessToken")
     if (accessToken != null) {
         try {
@@ -10,13 +10,16 @@ export async function loginSetup() {
                 body: JSON.stringify({accessToken: accessToken})
             }).then(res => handleHttpErrors(res))
 
-            window.router.navigate("/")
-            console.log('ran')
+            window.router.navigate("/user")
         } catch {
-
+            loginSetupAddEventListener()
         }
+    } else {
+        loginSetupAddEventListener()
     }
+}
 
+function loginSetupAddEventListener() {
     const loginButtonInput = document.querySelector("button#loginButton")
 
     loginButtonInput.addEventListener("click", login)
@@ -42,10 +45,8 @@ async function login() {
 
         localStorage.setItem("accessToken", data.accessToken)
 
-        window.router.navigate("/")
+        window.router.navigate("/user")
     } catch (err) {
         console.error(err)
     }
-
-
 }
