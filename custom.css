@@ -34,6 +34,13 @@ padding-bottom: 24px;
 .second-card{
     background-image: url("./static/registrerpicture.webp");
     background-size: cover;
+    color: red;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+
    
 }
 .box1 {
