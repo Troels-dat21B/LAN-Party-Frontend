@@ -32,7 +32,9 @@ padding-bottom: 24px;
 }
 
 .second-card{
-    background-image: url("./static/gamingprofile.png");
+    background-image: url("./static/registrerpicture.webp");
+    background-size: cover;
+   
 }
 .box1 {
     background-color: #000;
