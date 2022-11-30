@@ -19,6 +19,13 @@ padding-bottom: 24px;
             1px 1px 0 #000;
 
 }
+.box1 {
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+
+}
+
 
 .first-card{
     background-image: url("./static/ps4controller.jpg");
@@ -26,4 +33,10 @@ padding-bottom: 24px;
 
 .second-card{
     background-image: url("./static/gamingprofile.png");
+}
+.box1 {
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+
 }
