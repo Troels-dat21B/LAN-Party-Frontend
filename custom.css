@@ -1,9 +1,21 @@
-.top-image-container{
+.background-image{
     background-image: url("./static/lan-party.jpg");
+
 }
-
-
 
 .row{
 padding-bottom: 24px;
+}
+
+.btn-text-size{
+    font-size: medium;
+}
+.white-text{
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+
 }
