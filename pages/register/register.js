@@ -25,10 +25,10 @@ async function register() {
             headers: headers,
             body: jsonBody
         })
-        if(data.status != 403){
+        if(data.status = 403){
             window.router.navigate("/register") 
             alert("Brugernavnet er allerede taget")
-        }if(data.then(res => handleHttpErrors(res))){
+        }if(data=200){
             window.router.navigate("/")
             alert("Du er nu logget ind")
         }
