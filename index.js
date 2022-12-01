@@ -9,6 +9,7 @@ import {loginSetupAuthorize} from "./pages/login/login.js"
 
 import { fetchTableplan } from "./pages/tableplan/tableplan.js"
 import { userPageSetup } from "./pages/userPage/userPage.js"
+import { reservationPageSetup } from "./pages/reservationPage/reservationPage.js"
 
 const content = 'content'
 
@@ -19,6 +20,8 @@ window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html")
   const templateTableplan = await loadHtml("./pages/tableplan/tableplanView.html")
   const templateUserPage = await loadHtml("./pages/userPage/userPage.html")
+  const templateReservationPage = await loadHtml("./pages/reservationPage/reservationPage.html")
+  const templateReservationMade = await loadHtml("./pages/reservationPage/reservationMade.html")
   adjustForMissingHash()
 
     const router = new Navigo("/", {hash: true});
@@ -48,6 +51,13 @@ window.addEventListener("load", async () => {
             "/user": () => {
                 renderTemplate(templateUserPage, content)
                 userPageSetup()
+            },
+            "/reservation": () => {
+                renderTemplate(templateReservationPage, content)
+                reservationPageSetup()
+            },
+            "/reservationMade": () => {
+                renderTemplate(templateReservationMade, content)
             }
         })
         .notFound(() => {
