@@ -6,6 +6,7 @@ import {
 } from "./util.js"
 
 import {loginSetupAuthorize} from "./pages/login/login.js"
+import {registerAddEventListener} from "./pages/register/register.js"
 
 import { fetchTableplan } from "./pages/tableplan/tableplan.js"
 import { userPageSetup } from "./pages/userPage/userPage.js"
@@ -19,6 +20,7 @@ window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html")
   const templateTableplan = await loadHtml("./pages/tableplan/tableplanView.html")
   const templateUserPage = await loadHtml("./pages/userPage/userPage.html")
+  const templateRegistrer = await loadHtml("./pages/register/register.html")
   adjustForMissingHash()
 
     const router = new Navigo("/", {hash: true});
@@ -48,6 +50,10 @@ window.addEventListener("load", async () => {
             "/user": () => {
                 renderTemplate(templateUserPage, content)
                 userPageSetup()
+            },
+            "/register": () => {
+                renderTemplate(templateRegistrer, content)
+                registerAddEventListener()
             }
         })
         .notFound(() => {
