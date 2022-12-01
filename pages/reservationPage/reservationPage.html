@@ -1,0 +1,56 @@
+
+<div class="template container" style="padding-top: 20px">
+
+  <h1>Reservér Plads</h1>
+
+  <div style="display: flex; justify-content:center">
+        <img src="./static/bordplan1.png" style="display: center;">
+  </div>
+
+  <br>
+
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vælg et segment</h5>
+            <p class="card-text">Du skal vælge det segment du ønsker at sidde i.</p>
+            <div class="dropdown" style="padding-right:20px ;">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vælg Segment
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark" id="segmentDropdown">
+                  
+              </ul>
+                
+              <p id="segmentChoice" style="display:inline-flex"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vælg en plads</h5>
+            <p class="card-text">Du skal vælge den plads du gerne vil sidde på.</p>
+            <div class="dropdown">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vælg Stol
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark" id="chairDropdown">
+                  
+              </ul>
+                
+              <p id="chairChoice" style="display:inline-flex"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="padding-left: 17px">
+      <br>
+      <button id="reserveButton" type="button" class="btn btn-danger btn-lg" style="text-align: center">Reservér</button>
+      <br><br>
+    </div>
+</div>
