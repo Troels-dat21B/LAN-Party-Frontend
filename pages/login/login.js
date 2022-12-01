@@ -2,7 +2,7 @@ export async function loginSetupAuthorize() {
     const accessToken = localStorage.getItem("accessToken")
     if (accessToken != null) {
         try {
-            await fetch("http://localhost:8080/api/auth/authorize", {
+            await fetch(baseURL + "/api/auth/authorize", {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ async function login() {
     const jsonBody = JSON.stringify({username: usernameInput, password: passwordInput})
 
     try {
-        const data = await fetch("http://localhost:8080/api/auth/signIn", {
+        const data = await fetch(baseURL + "/api/auth/signIn", {
             method: 'post',
             headers: headers,
             body: jsonBody
