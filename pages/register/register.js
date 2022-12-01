@@ -32,7 +32,7 @@ async function register() {
         alert("Bruger oprettet!")
         console.log("Registreret")
     } catch (err) {
-        document.getElementById("error-on-register").innerHTML = err.apiError.response;
+        document.getElementById("error-on-register").innerHTML = DOMPurify.sanitize(err.apiError.response);
         console.error(err)
     
     }
