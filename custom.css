@@ -1,0 +1,69 @@
+.background-image{
+    background-image: url("./static/lan-party.jpg");
+
+}
+
+.row{
+padding-bottom: 24px;
+}
+
+.btn-text-size{
+    font-size: medium;
+}
+.white-text{
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+
+}
+.box1 {
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+
+}
+
+
+.first-card{
+    background-image: url("./static/ps4controller.jpg");
+}
+
+.second-card{
+    background-image: url("./static/registrerpicture.webp");
+    background-size: cover;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+.third-card{
+    background-image: url("./static/gamingpicture3.jpg");
+    background-size: cover;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+.fourth-card{
+    background-image: url("./static/logingamer.webp");
+    background-size: cover;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+.form-floating{
+}
+
