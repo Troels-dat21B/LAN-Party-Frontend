@@ -10,6 +10,7 @@ import {registerAddEventListener} from "./pages/register/register.js"
 
 import { fetchTableplan } from "./pages/tableplan/tableplan.js"
 import { userPageSetup } from "./pages/userPage/userPage.js"
+import { reservationPageSetup } from "./pages/reservationPage/reservationPage.js"
 
 const content = 'content'
 
@@ -21,6 +22,9 @@ window.addEventListener("load", async () => {
   const templateTableplan = await loadHtml("./pages/tableplan/tableplanView.html")
   const templateUserPage = await loadHtml("./pages/userPage/userPage.html")
   const templateRegistrer = await loadHtml("./pages/register/register.html")
+
+  const templateReservationPage = await loadHtml("./pages/reservationPage/reservationPage.html")
+  const templateReservationMade = await loadHtml("./pages/reservationPage/reservationMade.html")
   adjustForMissingHash()
 
     const router = new Navigo("/", {hash: true});
@@ -54,6 +58,13 @@ window.addEventListener("load", async () => {
             "/register": () => {
                 renderTemplate(templateRegistrer, content)
                 registerAddEventListener()
+            },
+            "/reservation": () => {
+                renderTemplate(templateReservationPage, content)
+                reservationPageSetup()
+            },
+            "/reservationMade": () => {
+                renderTemplate(templateReservationMade, content)
             }
         })
         .notFound(() => {
