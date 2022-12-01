@@ -26,12 +26,16 @@ async function register() {
             body: jsonBody
         }).then(res => handleHttpErrors(res))
 
-        document.getElementById("error-on-register").innerHTML = ""
+
+        document.getElementById("error-on-register").innerHTML = "";
         window.router.navigate("/")
+        alert("Bruger oprettet!")
         console.log("Registreret")
     } catch (err) {
         document.getElementById("error-on-register").innerHTML = err.apiError.response;
         console.error(err)
     
     }
+
+
 }
