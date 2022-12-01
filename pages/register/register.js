@@ -18,17 +18,19 @@ async function register() {
     headers.append("Accept", "application/json")
 
     const jsonBody = JSON.stringify({username: usernameInput, password: passwordInput})
-
+    
     try {
         const data = await fetch(baseURL + "/api/register", {
             method: 'post',
             headers: headers,
             body: jsonBody
         }).then(res => handleHttpErrors(res))
+
+        document.getElementById("error-on-register").innerHTML = ""
         window.router.navigate("/")
-        console.log("Registrere")
+        console.log("Registreret")
     } catch (err) {
-            
+        document.getElementById("error-on-register").innerHTML = err.apiError.response;
         console.error(err)
     
     }
