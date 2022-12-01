@@ -20,7 +20,7 @@ async function register() {
     const jsonBody = JSON.stringify({username: usernameInput, password: passwordInput})
 
     try {
-        const data = await fetch("http://localhost:8080/api/register", {
+        const data = await fetch(baseURL + "/api/register", {
             method: 'post',
             headers: headers,
             body: jsonBody
