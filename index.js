@@ -25,6 +25,7 @@ window.addEventListener("load", async () => {
 
   const templateReservationPage = await loadHtml("./pages/reservationPage/reservationPage.html")
   const templateReservationMade = await loadHtml("./pages/reservationPage/reservationMade.html")
+
   adjustForMissingHash()
 
     const router = new Navigo("/", {hash: true});
