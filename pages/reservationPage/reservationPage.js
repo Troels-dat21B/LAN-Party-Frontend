@@ -9,6 +9,8 @@ let chairChoice
 let reserveButton
 
 let chairData
+
+let chairDataList
 export function reservationPageSetup() {
     segmentDropdown = document.querySelector("#segmentDropdown")
 
@@ -106,7 +108,7 @@ async function createReservation() {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("accessToken")
             },
-            body: JSON.stringify({chairId: chairData})
+            body: JSON.stringify({chairId: chairData}) 
         }).then(res => handleHttpErrors(res))
 
         reservationMadePage()
