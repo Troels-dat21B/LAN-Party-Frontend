@@ -153,24 +153,22 @@ function chairChosen2(event) {
 
 
 async function createReservation() {
-    console.log(chairChoice)
-    let myData;
     try {
-        const myData = await fetch(baseURL + `/api/reservation`, {
+        const data = await fetch(baseURL + `/api/reservation`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("accessToken")
             },
-            body: JSON.stringify({chairId: chairData, chairId2: chairData2})
+            body: JSON.stringify({chairData, chairData2})
         }).then(res => handleHttpErrors(res))
-        console.log(data)
+
+        
         reservationMadePage()
 
     } catch (err) {
         console.error(err)
     }
-    console.log(data)
 }
 
 function reservationMadePage() {
