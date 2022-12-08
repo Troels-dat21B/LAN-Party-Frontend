@@ -1,6 +1,9 @@
 let segmentDropdown
 let segmentDropdown2
 
+let dropdownSeat1
+let dropdownSeat2
+
 let chairDropdown
 let chairDropdown2
 
@@ -44,6 +47,43 @@ export function reservationPageSetup() {
 
     reserveButton.addEventListener("click", createReservation)
 
+    document.getElementById("seat-1").classList.add("hidden")
+    document.getElementById("seat-2").classList.add("hidden")
+
+    dropdownSeat1 = document.querySelector("#dropdownSeat1")
+    dropdownSeat2 = document.querySelector("#dropdownSeat2")
+
+    dropdownSeat1.addEventListener("click", showSeatButton1)
+    dropdownSeat2.addEventListener("click", showSeatButton2)
+
+
+}
+
+function showSeatButton1(){
+    document.getElementById("seat-1").classList.remove("hidden")
+    document.getElementById("seat-2").classList.add("hidden")
+    //document.getElementById("seat-3").classList.add("hidden")
+    //document.getElementById("seat-4").classList.add("hidden")
+}
+function showSeatButton2(){
+    document.getElementById("seat-1").classList.remove("hidden")
+    document.getElementById("seat-2").classList.remove("hidden")
+    //document.getElementById("seat-3").classList.add("hidden")
+    //document.getElementById("seat-4").classList.add("hidden")
+
+}
+function showSeatButton3(){
+    document.getElementById("seat-1").classList.remove("hidden")
+    document.getElementById("seat-2").classList.remove("hidden")
+    document.getElementById("seat-3").classList.remove("hidden")
+    document.getElementById("seat-4").classList.add("hidden")
+
+}
+function showSeatButton4(){
+    document.getElementById("seat-1").classList.remove("hidden")
+    document.getElementById("seat-2").classList.remove("hidden")
+    document.getElementById("seat-3").classList.remove("hidden")
+    document.getElementById("seat-4").classList.remove("hidden")
 }
 
 async function segmentDropdownFunction(sD) {

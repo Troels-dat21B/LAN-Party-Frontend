@@ -6,9 +6,24 @@
         <img src="./static/bordplan1.png" style="display: center;">
   </div>
 
+  <div style="padding-left: 17px">
+    <br>
+    <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Hvor mange pladser vil du reservere?
+    </button>
+    
+      <ul class="dropdown-menu dropdown-menu-dark" id="seatAmount">
+        <li><a class="dropdown-item" id="dropdownSeat1">1</a></li>
+        <li><a class="dropdown-item" id="dropdownSeat2">2</a></li>
+        <li><a class="dropdown-item" id="dropdownSeat3">3</a></li>
+        <li><a class="dropdown-item" id="dropdownSeat4">4</a></li>
+      </ul>
+    <br><br>
+  </div>
+
   <br>
 
-  <div class="row">
+  <div class="row" id="seat-1">
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
@@ -49,7 +64,7 @@
 
     <br>
 
-    <div class="row">
+    <div class="row" id="seat-2">
         <div class="col-sm-6">
           <div class="card">  
             <div class="card-body">
