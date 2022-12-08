@@ -156,7 +156,7 @@ async function createReservation() {
     console.log(chairChoice)
     let myData;
     try {
-        const myData = await fetch(baseURL + `/api/reservation`, {
+        const Data = await fetch(baseURL + `/api/reservation`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
@@ -168,7 +168,7 @@ async function createReservation() {
         reservationMadePage()
 
     } catch (err) {
-        console.error(err)
+        console.error()
     }
     console.log(data)
 }
