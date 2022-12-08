@@ -66,3 +66,6 @@ padding-bottom: 24px;
 .form-floating{
 }
 
+.hidden{
+    display: none;
+}

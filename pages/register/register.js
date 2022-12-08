@@ -26,7 +26,6 @@ async function register() {
             body: jsonBody
         }).then(res => handleHttpErrors(res))
 
-
         document.getElementById("error-on-register").innerHTML = "";
         window.router.navigate("/")
         alert("Bruger oprettet!")
