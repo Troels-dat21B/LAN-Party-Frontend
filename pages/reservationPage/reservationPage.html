@@ -1,4 +1,3 @@
-
 <div class="template container" style="padding-top: 20px">
 
   <h1 style="text-align: center;">Bordplan</h1>
@@ -8,32 +7,87 @@
   </div>
 
   <br>
-<div class="row">
-  <div class="col-sm-6">
-    <div>
-      <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Hvor mange pladser vil du reservere?
-      </button>
-      <ul class="dropdown-menu dropdown-menu-dark" id="seatAmount">
-        <li><a class="dropdown-item">1</a></li>
-        <li><a class="dropdown-item">2</a></li>
-        <li><a class="dropdown-item">3</a></li>
-        <li><a class="dropdown-item">4</a></li>
-        <li><a class="dropdown-item">5</a></li>
-      </ul>
+
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vælg et segment</h5>
+            <p class="card-text">Du skal vælge det segment du ønsker at sidde i.</p>
+            <div class="dropdown" style="padding-right:20px ;">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vælg Segment
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark" id="segmentDropdown">
+                  
+              </ul>
+                
+              <p id="segmentChoice" style="display:inline-flex"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vælg en plads</h5>
+            <p class="card-text">Du skal vælge den plads du gerne vil sidde på.</p>
+            <div class="dropdown">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vælg Stol
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark" id="chairDropdown">
+                  
+              </ul>
+                
+              <p id="chairChoice" style="display:inline-flex"></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
+    <br>
 
-  
-</div>
-  <br>
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Vælg et segment</h5>
+              <p class="card-text">Du skal vælge det segment du ønsker at sidde i.</p>
+              <div class="dropdown" style="padding-right:20px ;">
+                <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Vælg Segment
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" id="segmentDropdown2">
+                    
+                </ul>
+                  
+                <p id="segmentChoice2" style="display:inline-flex"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Vælg en plads</h5>
+              <p class="card-text">Du skal vælge den plads du gerne vil sidde på.</p>
+              <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Vælg Stol
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" id="chairDropdown2">
+                    
+                </ul>
+                  
+                <p id="chairChoice2" style="display:inline-flex"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div id="seat-holder">
-
-
-</div>
- 
     
     <div style="padding-left: 17px">
       <br>
