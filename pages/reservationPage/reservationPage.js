@@ -1,56 +1,52 @@
 let segmentDropdown
+let segmentDropdown2
 
 let chairDropdown
+let chairDropdown2
 
 let segmentChoice
+let segmentChoice2
 
 let chairChoice
+let chairChoice2
 
 let reserveButton
 
 let chairData
-
-let seatButton
+let chairData2
 
 
 export function reservationPageSetup() {
-    
+    segmentDropdown = document.querySelector("#segmentDropdown")
+    segmentDropdown2 = document.querySelector("#segmentDropdown2")
+
+    chairDropdown = document.querySelector("#chairDropdown")
+    chairDropdown2 = document.querySelector("#chairDropdown2")
+
+    segmentChoice = document.querySelector("#segmentChoice")
+    segmentChoice2 = document.querySelector("#segmentChoice2")
+
+    chairChoice = document.querySelector("#chairChoice")
+    chairChoice2 = document.querySelector("#chairChoice2")
 
     reserveButton = document.querySelector("#reserveButton")
 
-    seatButton = document.querySelector("#seatAmount")
-
     const jsonBody = localStorage.getItem("accessToken")
-    
+
+    segmentDropdownFunction(segmentDropdown)
+    segmentDropdownFunction(segmentDropdown2)
+
+    segmentDropdown.addEventListener("click", segmentChosen)
+    segmentDropdown2.addEventListener("click", segmentChosen2)
+
+    chairDropdown.addEventListener("click", chairChosen)
+    chairDropdown2.addEventListener("click", chairChosen2)
 
     reserveButton.addEventListener("click", createReservation)
 
-    seatButton.addEventListener("click", amountOfSeats)
-    
-
 }
 
-function segmentAndChairSetup(){
-    segmentDropdown = document.querySelector("#segmentDropdown")
-
-    chairDropdown = document.querySelector("#chairDropdown")
-
-    segmentChoice = document.querySelector("#segmentChoice")
-
-    chairChoice = document.querySelector("#chairChoice")
-
-    segmentDropdown.addEventListener("click", segmentChosen)
-
-    chairDropdown.addEventListener("click", chairChosen)
-
-    segmentDropdownFunction()
-    
-}
-
-
-
-
-async function segmentDropdownFunction() {
+async function segmentDropdownFunction(sD) {
 
     try{
         const segmentData = await fetch(baseURL + "/api/segments/")
@@ -58,14 +54,13 @@ async function segmentDropdownFunction() {
 
         const segmentRows = segmentData.map(segment => {
             const segmentRow= `
-
             <li><a class="dropdown-item">${segment.segment_id}</a></li>
             <li><hr class="dropdown-divider"></li>
             `
             return segmentRow
         }).join('')
     
-        segmentDropdown.innerHTML = DOMPurify.sanitize(segmentRows)
+        sD.innerHTML = DOMPurify.sanitize(segmentRows)
 
 
     }catch (err){
@@ -102,6 +97,35 @@ async function segmentChosen(event) {
 
 }
 
+
+async function segmentChosen2(event) {
+    
+    try{
+        const chairFromSegment = await fetch(baseURL + `/api/chairs/segment/${event.target.text}`, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            } 
+        })
+        .then(res => handleHttpErrors(res))
+        
+        const chairRows = chairFromSegment.
+            map(chair => {
+                const chairRow = `
+                <li><a class="dropdown-item">${chair.chair_id}</a></li>
+                <li><hr class="dropdown-divider"></li>
+                `
+                return chairRow
+        }).join('')
+
+        chairDropdown2.innerHTML = DOMPurify.sanitize(chairRows)
+
+        segmentChoice2.innerHTML = DOMPurify.sanitize("Segment Valgt: " + event.target.text)
+    }catch (err) {
+        console.error(err);
+    }
+
+}
+
 function chairChosen(event) {
 
     chairData = parseInt(event.target.text);
@@ -114,88 +138,40 @@ function chairChosen(event) {
 
 }
 
+function chairChosen2(event) {
+
+    chairData2 = parseInt(event.target.text);
+
+    try{
+        chairChoice2.innerHTML = DOMPurify.sanitize("Plads valgt: " + chairData2)
+    }catch (err) {
+        console.error(err)
+    }
+
+}
+
+
+
 async function createReservation() {
     console.log(chairChoice)
-
+    let myData;
     try {
-        const data = await fetch(baseURL + `/api/reservation`, {
+        const myData = await fetch(baseURL + `/api/reservation`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("accessToken")
             },
-            body: JSON.stringify({chairId: chairData}) 
+            body: JSON.stringify({chairId: chairData, chairId2: chairData2})
         }).then(res => handleHttpErrors(res))
-
+        console.log(data)
         reservationMadePage()
 
     } catch (err) {
         console.error(err)
     }
+    console.log(data)
 }
-
-async function amountOfSeats(event) {
-    document.getElementById("seat-holder").innerHTML = "";
-{event.target.text}
-let counter = event.target.text;
-
-let amountOfCards;
-for (let i = 0; i < counter; i++) {
-    const reserveCards = `
-                <div class="row">
-                <div class="col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Vælg et segment</h5>
-                      <p class="card-text">Du skal vælge det segment du ønsker at sidde i.</p>
-                      <div class="dropdown" style="padding-right:20px ;">
-                        <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Vælg Segment
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark" id="segmentDropdown${i+1}">
-                            
-                        </ul>
-                          
-                        <p id="segmentChoice" style="display:inline-flex"></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Vælg en plads</h5>
-                      <p class="card-text">Du skal vælge den plads du gerne vil sidde på.</p>
-                      <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Vælg Stol
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark" id="chairDropdown${i+1}">
-                            
-                        </ul>
-                          
-                        <p id="chairChoice" style="display:inline-flex"></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                `
-
-    console.log(reserveCards)
-        document.getElementById("seat-holder").innerHTML += reserveCards;
-}
-    segmentAndChairSetup()
-                
-
-}
-
-
-
-
-
-
-
 
 function reservationMadePage() {
 
@@ -210,5 +186,3 @@ function backToReservePage() {
     window.router.navigate("/reservation")
 
 }
-
-
