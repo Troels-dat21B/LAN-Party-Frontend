@@ -40,6 +40,7 @@ async function login() {
         const data = await fetch(baseURL + "/api/auth/signIn", {
             method: 'post',
             headers: headers,
+            Allow: POST,
             body: jsonBody
         }).then(res => handleHttpErrors(res))
 
